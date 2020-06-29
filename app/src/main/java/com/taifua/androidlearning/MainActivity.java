@@ -6,16 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity
-{
+public class MainActivity extends AppCompatActivity {
 
     private Button mBtnUIView;
     private Button jiaBtn;
-    private  Button theme;
+    private Button theme;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setTheme(R.style.AppTheme2);
         setContentView(R.layout.activity_main);
@@ -27,8 +25,7 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    private void setListeners()
-    {
+    private void setListeners() {
         OnClick onClick = new OnClick();
         mBtnUIView.setOnClickListener(onClick);
         JiaClick jiaClick = new JiaClick();
@@ -38,14 +35,11 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    private class OnClick implements View.OnClickListener
-    {
+    private class OnClick implements View.OnClickListener {
         @Override
-        public void onClick(View view)
-        {
+        public void onClick(View view) {
             Intent intent = null;
-            switch (view.getId())
-            {
+            switch (view.getId()) {
                 case R.id.btn_ui_view:
                     intent = new Intent(MainActivity.this, UIActivity.class);
                     startActivity(intent);
@@ -56,14 +50,12 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    private  class JiaClick implements View.OnClickListener{
+    private class JiaClick implements View.OnClickListener {
 
         @Override
-        public void onClick(View view)
-        {
+        public void onClick(View view) {
             Intent intent = null;
-            switch (view.getId())
-            {
+            switch (view.getId()) {
                 case R.id.jia:
                     intent = new Intent(MainActivity.this, ToastActivity.class);
                     startActivity(intent);
@@ -74,15 +66,13 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-
     }
-    private  class ThemeClick implements View.OnClickListener{
+
+    private class ThemeClick implements View.OnClickListener {
 
         @Override
-        public void onClick(View view)
-        {
-            switch (view.getId())
-            {
+        public void onClick(View view) {
+            switch (view.getId()) {
                 case R.id.theme:
                     setTheme(R.style.AppTheme2);
                     recreate();
@@ -94,6 +84,33 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //前台显示
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        //页面隐藏
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+    }
+
 }
