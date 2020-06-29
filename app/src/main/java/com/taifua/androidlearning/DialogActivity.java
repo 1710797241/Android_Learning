@@ -4,6 +4,9 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -42,7 +45,8 @@ public class DialogActivity extends AppCompatActivity
             {
                 case R.id.btn_diolog1:
                     AlertDialog.Builder builder = new AlertDialog.Builder(DialogActivity.this);
-                    builder.setTitle("请回答：").setMessage("你喜欢计算机吗？").setIcon(R.drawable.username).setPositiveButton("喜欢", new DialogInterface.OnClickListener()
+                    builder.setTitle("请回答：").setMessage("你喜欢计算机吗？").setIcon(R.drawable.username)
+                            .setPositiveButton("喜欢", new DialogInterface.OnClickListener()
                     {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i)
@@ -68,7 +72,8 @@ public class DialogActivity extends AppCompatActivity
                 case R.id.btn_diolog2:
                     final String[] array2 = new String[]{"男", "女"};
                     AlertDialog.Builder builder2 = new AlertDialog.Builder(DialogActivity.this);
-                    builder2.setTitle("请选择性别").setItems(array2, new DialogInterface.OnClickListener()
+                    builder2.setTitle("请选择性别")
+                            .setItems(array2, new DialogInterface.OnClickListener()
                     {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i)
@@ -80,7 +85,8 @@ public class DialogActivity extends AppCompatActivity
                 case R.id.btn_diolog3:
                     final String[] array3 = new String[]{"男", "女"};
                     AlertDialog.Builder builder3 = new AlertDialog.Builder(DialogActivity.this);
-                    builder3.setTitle("请选择性别").setSingleChoiceItems(array3, 0, new DialogInterface.OnClickListener()
+                    builder3.setTitle("请选择性别")
+                            .setSingleChoiceItems(array3, 0, new DialogInterface.OnClickListener()
                     {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i)
@@ -94,7 +100,8 @@ public class DialogActivity extends AppCompatActivity
                     final String[] array4 = new String[]{"唱歌", "跳舞", "写代码"};
                     final boolean[] isCheckd = new boolean[]{false, false, true};
                     AlertDialog.Builder builder4 = new AlertDialog.Builder(DialogActivity.this);
-                    builder4.setTitle("选择兴趣").setMultiChoiceItems(array4, isCheckd, new DialogInterface.OnMultiChoiceClickListener()
+                    builder4.setTitle("选择兴趣")
+                            .setMultiChoiceItems(array4, isCheckd, new DialogInterface.OnMultiChoiceClickListener()
                     {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i, boolean b)
@@ -122,6 +129,23 @@ public class DialogActivity extends AppCompatActivity
                     View loginview = LayoutInflater.from(DialogActivity.this).inflate(R.layout.layout_dialog, null);
                     EditText username = loginview.findViewById(R.id.et_username);
                     EditText password = loginview.findViewById(R.id.et_password);
+                    username.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence s, int start, int before, int count) {
+                            Log.d("输出",s.toString());
+
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable s) {
+
+                        }
+                    });
                     Button btnLogin = loginview.findViewById(R.id.btn_login);
                     btnLogin.setOnClickListener(new View.OnClickListener()
                     {
@@ -131,7 +155,8 @@ public class DialogActivity extends AppCompatActivity
                             //
                         }
                     });
-                    builder5.setTitle("请先登录").setView(loginview).show();
+                    builder5.setTitle("请先登录")
+                            .setView(loginview).show();
                     break;
             }
         }

@@ -1,11 +1,22 @@
 <resources>
-
+    <attr name="tvColor1" format="color" />
+    <attr name="bgNormalColor" format="color" />
+    <attr name="tvSize1" format="dimension" />
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+
+    </style>
+    <style name="AppTheme2" parent="Theme.AppCompat.DayNight">
+        <item name="colorPrimary">#C55151</item>
+        <item name="colorPrimaryDark">#D95DD9</item>
+        <item name="colorAccent">#ffff00</item>
+        <item name="tvColor1">#ff0000</item>
+        <item name="tvSize1">28sp</item>
+        <item name="bgNormalColor">#C34A4A</item>
     </style>
 
     <style name="MyProgressBar">

@@ -98,7 +98,7 @@ public class CustomDialog extends Dialog implements View.OnClickListener
             case R.id.tv_cancel:
                 if (cancelListener != null)
                     cancelListener.onCancel(this);
-                dismiss();
+                dismiss();//关闭对话框
                 break;
             case R.id.tv_confirm:
                 if (confirmListener != null)

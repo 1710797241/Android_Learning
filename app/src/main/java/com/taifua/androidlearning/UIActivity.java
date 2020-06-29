@@ -59,6 +59,7 @@ public class UIActivity extends AppCompatActivity
         mBtnCustomDialog = findViewById(R.id.btn_custom_dialog);
         mBtnPopupWindow = findViewById(R.id.btn_popup_window);
         setListeners();
+        System.out.println("onCreate");
     }
 
     // 监听器方法
@@ -171,6 +172,45 @@ public class UIActivity extends AppCompatActivity
             }
             startActivity(intent);
         }
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        System.out.println("onStart");
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        System.out.println("onResume");
+
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        System.out.println("onPause");
+
+
+    }
+    @Override
+    protected void onStop(){
+        super.onStop();
+        System.out.println("onStop");
+
+    }
+    @Override
+    protected void onRestart(){
+        super.onRestart();
+        System.out.println("onRestart");
+
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        System.out.println("onDestroy");
+
     }
 }
 

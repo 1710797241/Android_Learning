@@ -1,5 +1,6 @@
 package com.taifua.androidlearning;
 
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Handler;
@@ -64,6 +65,13 @@ public class ProgressActivity extends AppCompatActivity
                 progressDialog.setMessage("正在下载...");
                 progressDialog.setButton(DialogInterface.BUTTON_POSITIVE, "棒", new DialogInterface.OnClickListener()
                 {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i)
+                    {
+
+                    }
+                });
+                progressDialog.setButton(DialogInterface.BUTTON_NEGATIVE,"nice",new DatePickerDialog.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i)
                     {

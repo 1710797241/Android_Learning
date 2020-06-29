@@ -23,11 +23,17 @@ public class WebViewActivity extends AppCompatActivity
         mBtnWv = findViewById(R.id.wv);
         // 加载本地html
 //        mBtnWv.loadUrl("file:///android_asset/404.html");
-        // 加载网络url
-        mBtnWv.getSettings().setJavaScriptEnabled(true);
-        mBtnWv.setWebViewClient(new MyWebViewClient());
-        mBtnWv.setWebChromeClient(new MyWebChromeClient());
-        mBtnWv.loadUrl("https://taifua.com/");
+//        // 加载网络url
+        mBtnWv.getSettings().setJavaScriptEnabled(true);//启用js
+        mBtnWv.getSettings().setDomStorageEnabled(true);
+
+        mBtnWv.setWebViewClient(new MyWebViewClient());//当前webview 继续加载
+        mBtnWv.setWebChromeClient(new MyWebChromeClient());//当前webview 继续加载
+////        mBtnWv.loadUrl("https://taifua.com/");
+//        mBtnWv.loadUrl("file:///android_asset/404.html");
+                mBtnWv.loadUrl("https://m.baidu.com/");
+
+
     }
 
     class MyWebViewClient extends WebViewClient
@@ -35,7 +41,8 @@ public class WebViewActivity extends AppCompatActivity
         @Override
         public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request)
         {
-            view.loadUrl(request.getUrl().toString());
+            Log.d("url",request.getUrl().toString());
+            view.loadUrl("https://m.baidu.com/"+request.getUrl().toString());
             return true;
         }
 
@@ -43,7 +50,7 @@ public class WebViewActivity extends AppCompatActivity
         public void onPageStarted(WebView view, String url, Bitmap favicon)
         {
             super.onPageStarted(view, url, favicon);
-            Log.d("Webview", "onPageStarted...");
+            Log.d("当前Webview继续", "onPageStarted...");
         }
 
         @Override

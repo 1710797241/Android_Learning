@@ -36,9 +36,18 @@ public class PopupWindowActivity extends AppCompatActivity
                         ToastUtil.showMsg(PopupWindowActivity.this, "妙啊");
                     }
                 });
+                TextView textView1 = popview.findViewById(R.id.tv_bad);
+                textView1.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mPop.dismiss();
+                        ToastUtil.showMsg(PopupWindowActivity.this, "no妙");
+
+                    }
+                });
                 mPop = new PopupWindow(popview, mBtnPop.getWidth(), ViewGroup.LayoutParams.WRAP_CONTENT);
-                mPop.setOutsideTouchable(true);
-                mPop.setFocusable(true);
+                mPop.setOutsideTouchable(true);//离焦消失
+                mPop.setFocusable(true);//聚焦显示
                 mPop.showAsDropDown(mBtnPop);
             }
         });

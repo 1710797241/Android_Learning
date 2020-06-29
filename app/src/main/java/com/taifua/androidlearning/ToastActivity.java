@@ -45,6 +45,7 @@ public class ToastActivity extends AppCompatActivity
             switch (view.getId())
             {
                 case R.id.btn_toast1:
+
                     Toast.makeText(getApplicationContext(), "Toast", Toast.LENGTH_LONG).show();
                     break;
                 case R.id.btn_toast2:
@@ -71,4 +72,7 @@ public class ToastActivity extends AppCompatActivity
             }
         }
     }
+
+
+
 }
